@@ -55,6 +55,7 @@ function buyButtonClicked(){
     while(cartContent.hasChildNodes()){
         cartContent.removeChild(cartContent.firstChild);
     }
+    updateTotal()
 }
 
 // remove items from cart
@@ -127,11 +128,9 @@ function updateTotal(){
         let price = parseFloat(priceElement.innerText.replace("$", ""))
         let quantity = quantityElement.value
         total = total + price * quantity;
-
+    }
         // if price Contain some Cents Value
         total = Math.round(total * 100)/100;
 
         document.getElementsByClassName("total-price")[0].innerText = "$" + total;
-    }
-
 }
