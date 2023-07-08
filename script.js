@@ -30,7 +30,7 @@ function ready(){
         button.addEventListener("click", removeCartItem)
     }
 
-    // quantity chnages
+    // quantity changes
     let quantityInputs = document.getElementsByClassName("cart-quantity")
     for(let i=0; i<quantityInputs.length; i++){
         let input = quantityInputs[i]
@@ -43,8 +43,19 @@ function ready(){
         let button =addCart[i]
         button.addEventListener("click", addCartClicked);
     }
+
+    // Buy button work
+    document.getElementsByClassName("btn-buy")[0].addEventListener("click", buyButtonClicked);
 }
 
+// Buy button
+function buyButtonClicked(){
+    alert("Your Order is placed")
+    let cartContent = document.getElementsByClassName("cart-content")[0]
+    while(cartContent.hasChildNodes()){
+        cartContent.removeChild(cartContent.firstChild);
+    }
+}
 
 // remove items from cart
 function removeCartItem(event){
